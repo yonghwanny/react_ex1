@@ -128,7 +128,7 @@ export default function KlipWallet() {
 						>
 							<Card.Img src={nft.uri} />
 						</Card>
-						#{nft.id}
+						#{nft.id}[{nft.name}]
 					</Col>
 				))}
 			</Row>

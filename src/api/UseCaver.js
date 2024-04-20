@@ -55,6 +55,7 @@ export const fetchCardsOf = async (address) => {
   }
   // Fetch Token URIs
   const tokenUris = [];
+  const tokenName = [];
   for (let i = 0; i < balance; i++) {
     // const uri = await NFTContract.methods.tokenURI(tokenIds[i]).call();
     // tokenUris.push(uri);
@@ -62,11 +63,13 @@ export const fetchCardsOf = async (address) => {
 		const metadataUrl = await NFTContract.methods.tokenURI(tokenIds[i]).call(); // KAS 메타데이터 response.uri: "https://metadata-store.klaytnapi.com/e2d83vdb-c108-823c-d5f3-69vdf2d871c51/4f9asvf2f5-02d0-5b86-4f99-50acds269c8a.json"
 		const response = await axios.get(metadataUrl) // JSON 형식 메타데이터가 들어옴
 		const uriJSON = response.data
+		console.log(uriJSON);
     tokenUris.push(uriJSON.image);
+	tokenName.push(uriJSON.name);
   }
   const nfts = [];
   for (let i = 0; i < balance; i++) {
-    nfts.push({ uri: tokenUris[i], id: tokenIds[i] });
+    nfts.push({ uri: tokenUris[i], id: tokenIds[i], name: tokenName[i] });
   }
   console.log(nfts);
   return nfts;
