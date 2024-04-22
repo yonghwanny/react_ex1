@@ -18,8 +18,10 @@ export default function NavBar() {
       <Nav className="w-100" align="center">
       <div className=" d-flex flex-row justify-content-around w-100">
           <Link to="/" style={{fontSize: 20}}><FontAwesomeIcon color="white" size="lg" icon={faHome} />Home</Link>
-				  
-					<Link to="/mint" style={{fontSize: 20}}><FontAwesomeIcon color="white" size="lg" icon={faPlus} />Mint</Link>
+
+					<Link to="/ticket" style={{fontSize: 20}}><FontAwesomeIcon color="white" size="lg" icon={faPlus} />Ticket</Link>
+
+					<Link to="/goods" style={{fontSize: 20}}><FontAwesomeIcon color="white" size="lg" icon={faPlus} />goods</Link>
           
 					<Link to="/wallet" style={{fontSize: 20}}><FontAwesomeIcon color="white" size="lg" icon={faWallet} />Wallet</Link>
       </div>

@@ -1,7 +1,8 @@
 import { HashRouter as Router, Route, Routes} from "react-router-dom";
 import KlipWallet from '../routes/KlipWallet';
 import Market from "../routes/Market";
-import Mint from "../routes/Mint";
+import Ticket from "../routes/Ticket";
+import Goods from "../routes/Goods";
 import Header from "./Header";
 import NavBar from "./NavBar";
 
@@ -13,9 +14,10 @@ const AppRouter = () => {
       <Styles />
       <Header />
       <Routes>
-        <Route exact={true} path="/" element={<Market/>} />
-        <Route exact={true} path="/wallet" element={<KlipWallet/>} />
-        <Route exact={true} path="/mint" element={<Mint/>} />
+        <Route path="/" element={<Market/>} />
+        <Route path="/wallet" element={<KlipWallet/>} />
+        <Route path="/ticket" element={<Ticket/>} />
+        <Route path="/goods" element={<Goods/>} />
       </Routes>
       <NavBar />
     </Router>

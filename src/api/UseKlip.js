@@ -24,12 +24,13 @@ const getKlipAccessUrl = (method, request_key) => {
 };
 
 export const buyCard = async (tokenId, setQrvalue, callback) => {
+  
   const functionJson =
     '{ "constant": false, "inputs": [ { "name": "tokenId", "type": "uint256" }, { "name": "NFTAddress", "type": "address" } ], "name": "buyNFT", "outputs": [ { "name": "", "type": "bool" } ], "payable": true, "stateMutability": "payable", "type": "function" }';
   executeContract(
     MARKET_CONTRACT_ADDRESS,
     functionJson,
-    "10000000000000000",
+    "10000000000000000",// eslint-disable-next-line
     `[\"${tokenId}\",\"${NFT_CONTRACT_ADDRESS}\"]`,
     setQrvalue,
     callback
@@ -47,7 +48,7 @@ export const listingCard = async (
   executeContract(
     NFT_CONTRACT_ADDRESS,
     functionJson,
-    "0",
+    "0",// eslint-disable-next-line
     `[\"${fromAddress}\",\"${MARKET_CONTRACT_ADDRESS}\",\"${tokenId}\"]`,
     setQrvalue,
     callback
@@ -66,7 +67,7 @@ export const mintCardWithURI = async (
   executeContract(
     NFT_CONTRACT_ADDRESS,
     functionJson,
-    "0",
+    "0",// eslint-disable-next-line
     `[\"${toAddress}\",\"${tokenId}\",\"${uri}\"]`,
     setQrvalue,
     callback

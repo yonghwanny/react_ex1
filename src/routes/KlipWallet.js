@@ -37,15 +37,7 @@ export default function KlipWallet() {
 		setShowModal(true);
 	}
 
-	const fetchMyNFTs = async () => {
-		if (myAddress === DEFAULT_ADDRESS) {
-			alert("NO ADDRESS");
-			return;
-		}
-		const _nfts = await fetchCardsOf(myAddress);
-		setNfts(_nfts);
-	};
-
+	
 	const getUserData = () => {
 		setModalProps({
 			title: "Klip 지갑을 연동하시겠습니까?",
@@ -68,9 +60,20 @@ export default function KlipWallet() {
 	}
 
 	useEffect(() => {
+		const fetchMyNFTs = async () => {
+			if (myAddress === DEFAULT_ADDRESS) {
+				alert("NO ADDRESS");
+				return;
+			}
+			const _nfts = await fetchCardsOf(myAddress);
+				setNfts(_nfts);
+			//await getNftInfo(82211);
+		}
+	
 		if (myAddress !== DEFAULT_ADDRESS) {
 			fetchMyNFTs();
 		}
+		
 	}, [myAddress]);
 
 	return (
@@ -128,7 +131,14 @@ export default function KlipWallet() {
 						>
 							<Card.Img src={nft.uri} />
 						</Card>
-						#{nft.id}[{nft.name}]
+						No.{nft.id} <h3>{nft.name}</h3><h5>{nft.description}</h5>
+						<Row>
+						{nft.attributes.map((attr) => (
+							<Col style={{ marginRight: 0, paddingRight: 0 }} sm={6} xs={6}>
+								{attr.trait_type} : {attr.value}
+							</Col>
+						))}
+						</Row>
 					</Col>
 				))}
 			</Row>
