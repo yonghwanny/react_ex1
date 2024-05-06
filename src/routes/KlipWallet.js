@@ -21,6 +21,35 @@ export default function KlipWallet() {
 		onConfirm: () => {},
 	});
 
+	//공연중일 경우 판매가격에 제한을 주기위한 체크함수
+	//const [checkLitmitPrice, setCheckLitmitPrice] = useState(false);
+	let checkBeforeDate = false;
+
+    // 공연중인 티켓일 경우 2차 판매금액의 최고금액을 제한한다.
+	const getCheckBeforeDate = (_pDate) => {
+		//const regex = /[^0-9]/g;
+		_pDate = _pDate.replace("년", "-");
+		_pDate = _pDate.replace("월", "-");
+		_pDate = _pDate.replace("일", "");
+		_pDate = _pDate.replace(/\s+/g, "");
+		const arrDate = _pDate.split("-");
+		//console.log(`${arrDate[0]}-${arrDate[1] >= 10 ? arrDate[1] : '0' + arrDate[1]}-${arrDate[2] >= 10 ? arrDate[2] : '0' + arrDate[2]}`);
+
+		//console.log(_pDate);
+		const pDate = new Date(`${arrDate[0]}-${arrDate[1] >= 10 ? arrDate[1] : '0' + arrDate[1]}-${arrDate[2] >= 10 ? arrDate[2] : '0' + arrDate[2]}`);
+		console.log(pDate);
+		const tDate = new Date();
+		if(pDate.getTime() > tDate.getTime()) {
+			//setCheckLitmitPrice(true);
+			//console.log(pDate.getTime());
+			return true;
+		}
+		//setCheckLitmitPrice(false);
+		//console.log(pDate.getTime());
+		return false;
+	}
+	
+
 	const onClickMyCard = (tokenId) => {
 		KlipAPI.listingCard(myAddress, tokenId, setQrvalue, (result) => {
 			alert(JSON.stringify(result));
@@ -37,7 +66,6 @@ export default function KlipWallet() {
 		setShowModal(true);
 	}
 
-	
 	const getUserData = () => {
 		setModalProps({
 			title: "Klip 지갑을 연동하시겠습니까?",
@@ -58,7 +86,7 @@ export default function KlipWallet() {
 	const handleClickCopyAddress = () => {
 		navigator.clipboard.writeText(myAddress).then(() => setShowToast(true));
 	}
-
+	
 	useEffect(() => {
 		const fetchMyNFTs = async () => {
 			if (myAddress === DEFAULT_ADDRESS) {
@@ -131,13 +159,36 @@ export default function KlipWallet() {
 						>
 							<Card.Img src={nft.uri} />
 						</Card>
-						No.{nft.id} <h3>{nft.name}</h3><h5>{nft.description}</h5>
+						<Row><h5>No.{nft.id}</h5><h4>{nft.name}</h4><h5>{nft.description}</h5></Row>
 						<Row>
-						{nft.attributes.map((attr) => (
-							<Col style={{ marginRight: 0, paddingRight: 0 }} sm={6} xs={6}>
-								{attr.trait_type} : {attr.value}
+						{nft.attributes.map((attr) => {
+							//공연일 이전인지 체크
+							if(attr.trait_type === "공연일시"){
+								//console.log(attr.value);
+								checkBeforeDate = getCheckBeforeDate(attr.value);
+								//attr.value = new Date();
+							}
+							//공연중일때 판매가격 제한
+							if(checkBeforeDate && attr.trait_type === "티켓가격"){
+								//attr.value = Number(attr.value) * 2;
+								//klay 현재가격
+
+								//최대가격이상일 경우 리턴
+
+								
+							}
+							return (
+								<Col style={{ marginRight: 0, paddingRight: 0 }} sm={6} xs={6}>
+									<li>{attr.trait_type} : {attr.value}</li>
+								</Col>
+							);
+						}	
+						)}
+						</Row>
+						<Row>
+							<Col>
+							<input value={nft.id} />Klay <Button>판매등록</Button>
 							</Col>
-						))}
 						</Row>
 					</Col>
 				))}
