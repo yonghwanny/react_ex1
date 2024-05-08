@@ -1,6 +1,6 @@
 import React from "react";
 
 export default function Header() {
-	return <h1 style={{ backgroundColor: '#0071db', color: '#fff', textAlign: 'center', padding: 10, }}>
-		XPass NFT Market</h1>
+	return <h1 style={{ backgroundColor: 'black', color: '#fff', textAlign: 'center', padding: 10, }}>
+		<font color='red'>XPass</font> NFT Market</h1>
 }

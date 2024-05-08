@@ -8,7 +8,7 @@ export default function NavBar() {
 	return (
 		<nav
 			style={{
-				backgroundColor: "#fff",
+				backgroundColor: "black",
 				height: 45,
 				boxShadow: "0px 6px 7px 5px rgba(0,0,0,0.5)",
 			}}
@@ -21,7 +21,7 @@ export default function NavBar() {
 
 					<Link to="/ticket" style={{fontSize: 20}}><FontAwesomeIcon color="white" size="lg" icon={faPlus} />Ticket</Link>
 
-					<Link to="/goods" style={{fontSize: 20}}><FontAwesomeIcon color="white" size="lg" icon={faPlus} />goods</Link>
+					<Link to="/goods" style={{fontSize: 20}}><FontAwesomeIcon color="white" size="lg" icon={faPlus} />Goods</Link>
           
 					<Link to="/wallet" style={{fontSize: 20}}><FontAwesomeIcon color="white" size="lg" icon={faWallet} />Wallet</Link>
       </div>

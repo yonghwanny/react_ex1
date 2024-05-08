@@ -6,7 +6,7 @@ import { getBalance, fetchCardsOf } from "../api/UseCaver";
 import * as KlipAPI from "../api/UseKlip";
 import { DEFAULT_QR_CODE, DEFAULT_ADDRESS } from "../constants/for_klip";
 import LogoKlaytn from "../assets/logo_klaytn.png";
-
+//import axios from "axios";
 
 export default function KlipWallet() {
 	const [nfts, setNfts] = useState([]); // {id: '101', uri: ''}
@@ -48,7 +48,8 @@ export default function KlipWallet() {
 		//console.log(pDate.getTime());
 		return false;
 	}
-	
+	//종가 클레이 가격
+	const [klayPrice, setKlayPrice] = useState('0');	
 
 	const onClickMyCard = (tokenId) => {
 		KlipAPI.listingCard(myAddress, tokenId, setQrvalue, (result) => {
@@ -97,9 +98,31 @@ export default function KlipWallet() {
 				setNfts(_nfts);
 			//await getNftInfo(82211);
 		}
+
+		//종가 클레이튼 가격 가져요기
+		const fetchKlayPrice = async () => {
+			if (myAddress === DEFAULT_ADDRESS) {
+				alert("NO ADDRESS");
+				return;
+			}
+
+			try {
+				const URL = "https://gametok.co.kr/api/klay_info.json";
+
+				const response = await fetch(URL);
+      	const result = await response.json();
+				console.log(result.tickers[0].last);
+				setKlayPrice(result.tickers[0].last);
+			}catch(error){
+				console.error(error);
+			}
+			
+			//setKlayPrice('258');
+		}
 	
 		if (myAddress !== DEFAULT_ADDRESS) {
 			fetchMyNFTs();
+			fetchKlayPrice();
 		}
 		
 	}, [myAddress]);
@@ -141,7 +164,7 @@ export default function KlipWallet() {
 					{myAddress !== DEFAULT_ADDRESS ? (
 						<div style={{ textAlign: "right" }}>
 							<img src={LogoKlaytn} alt="klaytn" style={{ width: 30 }} />
-							{myBalance} KLAY
+							{myBalance} KLAY  [{klayPrice}원]
 						</div>
 					) : (
 						"지갑 연동하기"
