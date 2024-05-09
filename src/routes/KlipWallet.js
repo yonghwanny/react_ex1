@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, Row, Col, Button, Toast, Alert } from "react-bootstrap";
 import Modal from "../components/Modal";
 import QRcode from "../components/QRcode";
-import { getBalance, fetchCardsOf } from "../api/UseCaver";
+import { getBalance, fetchCardsOf, getSaleStatus } from "../api/UseCaver";
 import * as KlipAPI from "../api/UseKlip";
 import { DEFAULT_QR_CODE, DEFAULT_ADDRESS } from "../constants/for_klip";
 import LogoKlaytn from "../assets/logo_klaytn.png";
@@ -33,24 +33,23 @@ export default function KlipWallet() {
 		_pDate = _pDate.replace("일", "");
 		_pDate = _pDate.replace(/\s+/g, "");
 		const arrDate = _pDate.split("-");
-		//console.log(`${arrDate[0]}-${arrDate[1] >= 10 ? arrDate[1] : '0' + arrDate[1]}-${arrDate[2] >= 10 ? arrDate[2] : '0' + arrDate[2]}`);
-
-		//console.log(_pDate);
+	
 		const pDate = new Date(`${arrDate[0]}-${arrDate[1] >= 10 ? arrDate[1] : '0' + arrDate[1]}-${arrDate[2] >= 10 ? arrDate[2] : '0' + arrDate[2]}`);
-		console.log(pDate);
+		//console.log(pDate);
 		const tDate = new Date();
 		if(pDate.getTime() > tDate.getTime()) {
-			//setCheckLitmitPrice(true);
-			//console.log(pDate.getTime());
+		
 			return true;
 		}
-		//setCheckLitmitPrice(false);
-		//console.log(pDate.getTime());
 		return false;
 	}
 	//종가 클레이 가격
 	const [klayPrice, setKlayPrice] = useState('0');	
-
+	//판매승인 확인
+	const [saleStatus, setSaleStatus] = useState(false);
+	//const account = myAddress;
+ 
+	/////////////////////////////////////////////////////////////////////
 	const onClickMyCard = (tokenId) => {
 		KlipAPI.listingCard(myAddress, tokenId, setQrvalue, (result) => {
 			alert(JSON.stringify(result));
@@ -65,6 +64,22 @@ export default function KlipWallet() {
 			},
 		})
 		setShowModal(true);
+	}
+	//판매승인 토글
+	const onClickApproveMyCard = () => {
+		KlipAPI.approveSaleCardAll(!saleStatus, setQrvalue, (result) => {
+			alert(JSON.stringify(result));
+		});
+	};
+
+	const onClickApproveCard = (_msg) => {
+	setModalProps({
+		title: _msg,
+		onConfirm: () => {
+			onClickApproveMyCard();
+		},
+	})
+	setShowModal(true);
 	}
 
 	const getUserData = () => {
@@ -97,6 +112,8 @@ export default function KlipWallet() {
 			const _nfts = await fetchCardsOf(myAddress);
 				setNfts(_nfts);
 			//await getNftInfo(82211);
+			const _saleStatus = await getSaleStatus(myAddress);
+			setSaleStatus(_saleStatus);
 		}
 
 		//종가 클레이튼 가격 가져요기
@@ -172,6 +189,22 @@ export default function KlipWallet() {
 				</Alert>
 			</div>
 			{qrvalue !== "DEFAULT" ? <QRcode value={qrvalue} /> : null}
+			{myAddress !== DEFAULT_ADDRESS ? (
+			<Row style={{ textAlign: "right" }}>
+				<Col>
+				{saleStatus ? (
+					<Button onClick={() => {onClickApproveCard("판매승인 취소를 하시겠어요?")}}>
+					판매승인취소
+					</Button>
+				) : (
+					<Button onClick={() => {onClickApproveCard("판매승인을 하시겠어요?")}}>
+					판매승인
+					</Button>
+				)}
+				
+				</Col>
+			</Row>
+			) : null}
 			<Row>
 				{nfts.map((nft) => (
 					<Col style={{ marginRight: 0, paddingRight: 0 }} sm={6} xs={6}>
@@ -208,9 +241,9 @@ export default function KlipWallet() {
 						}	
 						)}
 						</Row>
-						<Row>
+						<Row style={{ textAlign: "right" }}>
 							<Col>
-							<input value={nft.id} />Klay <Button>판매등록</Button>
+							<input value={nft.id} size='5' />Klay <Button disabled={{saleStatus}}>판매등록</Button>
 							</Col>
 						</Row>
 					</Col>

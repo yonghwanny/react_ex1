@@ -5,6 +5,7 @@ import {
 	ACCESS_KEY_ID,
 	SECRET_ACCESS_KEY,
 	NFT_CONTRACT_ADDRESS,
+	MARKET_CONTRACT_ADDRESS,
 	CHAIN_ID,
 } from "../config"
 
@@ -109,4 +110,21 @@ export const getNftInfo = async (tid) => {
 	
 	return nftInfo;
 
+}
+
+//판매승인 여부 확인
+export const getSaleStatus = async (account) => {
+	try {
+		if (!account || !NFTContract) return;
+
+		const response = await NFTContract.methods
+			.isApprovedForAll(account, MARKET_CONTRACT_ADDRESS)
+			.call();
+
+		console.log(response);
+
+		return response;
+	} catch (error) {
+		console.error(error);
+	}
 }

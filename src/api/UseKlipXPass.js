@@ -73,25 +73,7 @@ export const mintCardWithURI = async (
     callback
   );
 };
-//판매승인
-export const approveSaleCardAll = async (
-  saleStatus,
-  setQrvalue,
-  callback
-) => {
-  const functionJson = 
-    '{ "inputs": [ { "internalType": "address", "name": "operator", "type": "address" }, { "internalType": "bool", "name": "approved", "type": "bool" } ], "name": "setApprovalForAll", "outputs": [], "stateMutability": "nonpayable", "type": "function" }';
-  executeContract(
-    NFT_CONTRACT_ADDRESS,
-    functionJson,
-    "0",// eslint-disable-next-line
-    `[\"${MARKET_CONTRACT_ADDRESS}\",${saleStatus}]`,
-    setQrvalue,
-    callback
-  );
-};
 
-///////////////////////////////////////////////////////////////////////////////
 export const executeContract = (
   txTo,
   functionJSON,
