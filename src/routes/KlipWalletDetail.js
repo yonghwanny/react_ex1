@@ -56,6 +56,7 @@ const [saleStatus, setSaleStatus] = useState(false);
 //const account = myAddress;
 //판매가격
 const [sellPrice, setSellPrice] = useState("0");
+const [inputSellPrice, setInputSellPrice] = useState("");
 /////////////////////////////////////////////////////////////////////
 const onClickMyCard = (tokenId) => {
   KlipAPI.listingCard(myAddress, tokenId, setQrvalue, (result) => {
@@ -89,8 +90,12 @@ setModalProps({
 setShowModal(true);
 }
 //판매등록 이벤트
-const onClickSellPrice = () => alert("판매하시겠습니까?");
-
+const onClickSellPrice = () => {
+  alert(inputSellPrice + " klay에 판매하시겠습니까?");
+}
+const onChangeSellPrice = (event) => {
+  setInputSellPrice(event.target.value);
+}
 //클립 지갑연동
 const getUserData = () => {
   setModalProps({
@@ -275,7 +280,7 @@ return (
             <Col>
             {sellPrice === "0" ? (
               <div>
-                <input></input> Klay
+                <input type='number' onChange={onChangeSellPrice} value={inputSellPrice}></input> Klay
                 <button onClick={onClickSellPrice}>판매등록</button>
               </div>
               
