@@ -48,11 +48,9 @@ export default function KlipWallet() {
 	const [klayPrice, setKlayPrice] = useState('0');	
 	//판매승인 확인
 	const [saleStatus, setSaleStatus] = useState(false);
-	console.log(saleStatus);
 	//const account = myAddress;
  
 	/////////////////////////////////////////////////////////////////////
-	/*
 	const onClickMyCard = (tokenId) => {
 		KlipAPI.listingCard(myAddress, tokenId, setQrvalue, (result) => {
 			alert(JSON.stringify(result));
@@ -68,9 +66,7 @@ export default function KlipWallet() {
 		})
 		setShowModal(true);
 	}
-	*/
 	//판매승인 토글
-	/*
 	const onClickApproveMyCard = () => {
 		KlipAPI.approveSaleCardAll(!saleStatus, setQrvalue, (result) => {
 			alert(JSON.stringify(result));
@@ -86,7 +82,7 @@ export default function KlipWallet() {
 	})
 	setShowModal(true);
 	}
-*/
+
 	//클립 지갑연동
 	const getUserData = () => {
 		setModalProps({
@@ -195,6 +191,22 @@ export default function KlipWallet() {
 				</Alert>
 			</div>
 			{qrvalue !== "DEFAULT" ? <QRcode value={qrvalue} /> : null}
+			{myAddress !== DEFAULT_ADDRESS ? (
+			<Row style={{ textAlign: "right" }}>
+				<Col>
+				{saleStatus ? (
+					<Button onClick={() => {onClickApproveCard("판매승인 취소를 하시겠어요?")}}>
+					판매승인취소
+					</Button>
+				) : (
+					<Button onClick={() => {onClickApproveCard("판매승인을 하시겠어요?")}}>
+					판매승인
+					</Button>
+				)}
+				
+				</Col>
+			</Row>
+			) : null}
 			<Row>
 				{nfts.map((nft) => (
 					<Col style={{ marginRight: 0, paddingRight: 0 }} sm={6} xs={6}>
@@ -229,7 +241,11 @@ export default function KlipWallet() {
 						}	
 						)}
 						</Row>
-
+						<Row style={{ textAlign: "right" }}>
+							<Col>
+							<input name={nft.id} value={nft.id} size='3' />Klay <Button>판매등록</Button>
+							</Col>
+						</Row>
 					</Col>
 				))}
 			</Row>
