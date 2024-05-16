@@ -175,7 +175,7 @@ return (
     className="container"
     style={{ padding: "0 10px 50px", width: "100%" }}
   >
-    <h1>My Wallet</h1>
+    <h1>Ticket</h1>
     <div className="d-grid gap-2" style={{ position: "relative" }}>
       <Button
         onClick={handleClickCopyAddress}
