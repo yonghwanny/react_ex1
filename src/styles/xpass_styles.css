@@ -1,0 +1,1234 @@
+.main,
+.main * {
+  box-sizing: border-box;
+}
+.main {
+  height: 2367px;
+  position: relative;
+  overflow: hidden;
+}
+.rectangle-8 {
+  background: linear-gradient(
+    153.76deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(51, 51, 51, 1) 76.69700980186462%
+  );
+  width: 100%;
+  height: 98.73%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 1.27%;
+}
+.xpattern-1-1 {
+  opacity: 0.12999999523162842;
+  width: 248px;
+  height: 353px;
+  position: absolute;
+  left: 0px;
+  top: 425px;
+  object-fit: cover;
+}
+.group-3 {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-2 {
+  background: #d9d9d9;
+  width: 360px;
+  height: 217px;
+  position: absolute;
+  left: 0px;
+  top: 50px;
+}
+.rectangle-3 {
+  width: 360px;
+  height: 217px;
+  position: absolute;
+  left: 0px;
+  top: 50px;
+  object-fit: cover;
+}
+.group-19 {
+  width: 99px;
+  height: 3px;
+  position: static;
+}
+.rectangle-4 {
+  background: #ff3c37;
+  width: 19.97px;
+  height: 3px;
+  position: absolute;
+  left: 241px;
+  top: 248px;
+}
+.rectangle-5 {
+  background: #ffffff;
+  width: 19.97px;
+  height: 3px;
+  position: absolute;
+  left: 267.05px;
+  top: 248px;
+}
+.rectangle-6 {
+  background: #ffffff;
+  width: 19.97px;
+  height: 3px;
+  position: absolute;
+  left: 293.97px;
+  top: 248px;
+}
+.rectangle-7 {
+  background: #ffffff;
+  width: 19.97px;
+  height: 3px;
+  position: absolute;
+  left: 320.03px;
+  top: 248px;
+}
+.group-6 {
+  position: absolute;
+  inset: 0;
+}
+.x-ticket {
+  text-align: left;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+  position: absolute;
+  left: 20px;
+  top: 297px;
+}
+.x-ticket-span {
+  color: #ff3c37;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+}
+.x-ticket-span2 {
+  color: #bd3834;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+}
+.x-ticket-span3 {
+  color: #ffffff;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+}
+.group-4 {
+  width: 130px;
+  height: 223px;
+  position: absolute;
+  left: 20px;
+  top: 347px;
+}
+.rectangle-10 {
+  border-radius: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  overflow: visible;
+}
+.div {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 3.85%;
+  left: 3.85%;
+  width: 92.31%;
+  bottom: 3.59%;
+  top: 78.48%;
+  height: 17.94%;
+}
+.rectangle-9 {
+  border-radius: 20px 20px 0px 0px;
+  width: 100%;
+  height: 75.34%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 24.66%;
+  top: 0%;
+  object-fit: cover;
+}
+.group-5 {
+  width: 130px;
+  height: 223px;
+  position: absolute;
+  left: 170px;
+  top: 347px;
+}
+.rectangle-102 {
+  border-radius: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  overflow: visible;
+}
+.group-62 {
+  width: 130px;
+  height: 223px;
+  position: absolute;
+  left: 320px;
+  top: 347px;
+}
+.rectangle-103 {
+  border-radius: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  overflow: visible;
+}
+.group-7 {
+  width: 170px;
+  height: 50px;
+  position: absolute;
+  left: 190px;
+  top: 600px;
+}
+.rectangle-11 {
+  border-radius: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  overflow: visible;
+}
+.rectangle-12 {
+  border-radius: 0px;
+  width: 8.82%;
+  height: 100%;
+  position: absolute;
+  right: 91.18%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  overflow: visible;
+}
+.div2 {
+  color: #000000;
+  text-align: center;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+  position: absolute;
+  right: 22.35%;
+  left: 21.76%;
+  width: 55.88%;
+  bottom: 32%;
+  top: 30%;
+  height: 38%;
+}
+.group-12 {
+  position: absolute;
+  inset: 0;
+}
+.group-8 {
+  width: 150px;
+  height: 241px;
+  position: absolute;
+  left: 20px;
+  top: 1630px;
+}
+.rectangle-92 {
+  border-radius: 20px 0px 20px 0px;
+  width: 100%;
+  height: 62.24%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 37.76%;
+  top: 0%;
+  object-fit: cover;
+}
+.group-14 {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-193 {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  width: 28%;
+  height: 8.3%;
+  position: absolute;
+  right: 4%;
+  left: 68%;
+  bottom: 89.21%;
+  top: 2.49%;
+}
+.mdi-heart-outline {
+  width: 13.33%;
+  height: 7.88%;
+  position: absolute;
+  right: 15.33%;
+  left: 71.33%;
+  bottom: 89.21%;
+  top: 2.9%;
+  overflow: visible;
+}
+._37 {
+  color: #ffffff;
+  text-align: right;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 7.62%;
+  left: 80%;
+  width: 12.38%;
+  bottom: 90.04%;
+  top: 4.15%;
+  height: 5.81%;
+}
+._1234 {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 16.6%;
+  top: 65.15%;
+  height: 18.26%;
+}
+.line-5 {
+  border-style: solid;
+  border-color: #444444;
+  border-width: 1px 0 0 0;
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 15.77%;
+  top: 84.23%;
+}
+._400-klay {
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 50.67%;
+  left: 0%;
+  width: 49.33%;
+  bottom: 6.22%;
+  top: 85.89%;
+  height: 7.88%;
+}
+._400-klay-span {
+  color: #ff3c37;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+._400-klay-span2 {
+  color: #ffffff;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+._120-000 {
+  color: #aaaaaa;
+  text-align: left;
+  font-family: "NotoSansKr-Regular", sans-serif;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  font-weight: 400;
+  position: absolute;
+  right: 52%;
+  left: 0%;
+  width: 48%;
+  bottom: 0%;
+  top: 92.95%;
+  height: 7.05%;
+}
+.group-10 {
+  width: 150px;
+  height: 218px;
+  position: absolute;
+  left: 20px;
+  top: 1911px;
+}
+.rectangle-93 {
+  border-radius: 20px 0px 20px 0px;
+  width: 100%;
+  height: 68.81%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 31.19%;
+  top: 0%;
+  object-fit: cover;
+}
+.rectangle-1932 {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  width: 28%;
+  height: 9.17%;
+  position: absolute;
+  right: 4%;
+  left: 68%;
+  bottom: 88.07%;
+  top: 2.75%;
+}
+.mdi-heart-outline2 {
+  width: 13.33%;
+  height: 8.72%;
+  position: absolute;
+  right: 15.33%;
+  left: 71.33%;
+  bottom: 88.07%;
+  top: 3.21%;
+  overflow: visible;
+}
+._372 {
+  color: #ffffff;
+  text-align: right;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 7.62%;
+  left: 80%;
+  width: 12.38%;
+  bottom: 88.99%;
+  top: 4.59%;
+  height: 6.42%;
+}
+.school-of-rock {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 17.89%;
+  top: 72.02%;
+  height: 10.09%;
+}
+.line-52 {
+  border-style: solid;
+  border-color: #444444;
+  border-width: 1px 0 0 0;
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 17.43%;
+  top: 82.57%;
+}
+._400-klay2 {
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 50.67%;
+  left: 0%;
+  width: 49.33%;
+  bottom: 6.88%;
+  top: 84.4%;
+  height: 8.72%;
+}
+._400-klay-2-span {
+  color: #ff3c37;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+._400-klay-2-span2 {
+  color: #ffffff;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+._120-0002 {
+  color: #aaaaaa;
+  text-align: left;
+  font-family: "NotoSansKr-Regular", sans-serif;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  font-weight: 400;
+  position: absolute;
+  right: 52%;
+  left: 0%;
+  width: 48%;
+  bottom: 0%;
+  top: 92.2%;
+  height: 7.8%;
+}
+.group-11 {
+  width: 150px;
+  height: 241px;
+  position: absolute;
+  left: 190px;
+  top: 1911px;
+}
+.mdi-heart-outline3 {
+  width: 13.33%;
+  height: 7.88%;
+  position: absolute;
+  right: 15.33%;
+  left: 71.33%;
+  bottom: 89.21%;
+  top: 2.9%;
+  overflow: visible;
+}
+._400-klay-span3 {
+  color: #ff3c37;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+._400-klay-span4 {
+  color: #ffffff;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+.component-6 {
+  width: 150px;
+  height: 218px;
+  position: absolute;
+  left: 190px;
+  top: 1630px;
+}
+.mdi-heart-outline4 {
+  width: 13.33%;
+  height: 8.72%;
+  position: absolute;
+  right: 15.33%;
+  left: 71.33%;
+  bottom: 88.07%;
+  top: 3.21%;
+  overflow: visible;
+}
+._400-klay-2-span3 {
+  color: #ff3c37;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+._400-klay-2-span4 {
+  color: #ffffff;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+.group-72 {
+  width: 170px;
+  height: 50px;
+  position: absolute;
+  left: 190px;
+  top: 2182px;
+}
+.rectangle-112 {
+  border-radius: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  overflow: visible;
+}
+.rectangle-122 {
+  border-radius: 0px;
+  width: 8.82%;
+  height: 100%;
+  position: absolute;
+  right: 91.18%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  overflow: visible;
+}
+.nft {
+  text-align: left;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+  position: absolute;
+  left: 20px;
+  top: 1580px;
+}
+.nft-span {
+  color: #ff3c37;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+}
+.nft-span2 {
+  color: #ffffff;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+}
+.group-13 {
+  position: absolute;
+  inset: 0;
+}
+.nft2 {
+  text-align: left;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+  position: absolute;
+  left: 20px;
+  top: 710px;
+}
+.nft-2-span {
+  color: #ff3c37;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+}
+.nft-2-span2 {
+  color: #ffffff;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+}
+.nft-2-span3 {
+  color: #bd3834;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+}
+.nft-2-span4 {
+  color: #ffffff;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+}
+.group-73 {
+  width: 170px;
+  height: 50px;
+  position: absolute;
+  left: 190px;
+  top: 1473px;
+}
+.rectangle-113 {
+  border-radius: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  overflow: visible;
+}
+.rectangle-123 {
+  border-radius: 0px;
+  width: 8.82%;
+  height: 100%;
+  position: absolute;
+  right: 91.18%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  overflow: visible;
+}
+.component-1 {
+  width: 320px;
+  height: 140px;
+  position: absolute;
+  left: 20px;
+  top: 763px;
+}
+.rectangle-192 {
+  background: linear-gradient(to left, #000000, #000000);
+  border-radius: 20px 0px 20px 0px;
+  width: 43.75%;
+  height: 100%;
+  position: absolute;
+  right: 56.25%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.rectangle-1933 {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  width: 13.12%;
+  height: 14.29%;
+  position: absolute;
+  right: 58.13%;
+  left: 28.75%;
+  bottom: 82.14%;
+  top: 3.57%;
+}
+.mdi-heart-outline5 {
+  width: 6.25%;
+  height: 13.57%;
+  position: absolute;
+  right: 63.44%;
+  left: 30.31%;
+  bottom: 82.14%;
+  top: 4.29%;
+  overflow: visible;
+}
+._373 {
+  color: #ffffff;
+  text-align: right;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 59.82%;
+  left: 34.38%;
+  width: 5.8%;
+  bottom: 83.57%;
+  top: 6.43%;
+  height: 10%;
+}
+.group-1 {
+  position: absolute;
+  inset: 0;
+}
+.div3 {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 0%;
+  left: 46.88%;
+  width: 53.12%;
+  bottom: 87.86%;
+  top: -2.14%;
+  height: 14.29%;
+}
+.div4 {
+  color: #aaaaaa;
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 13px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 0%;
+  left: 46.88%;
+  width: 53.12%;
+  bottom: 70.71%;
+  top: 18.57%;
+  height: 10.71%;
+}
+._2024-05-08-19-30 {
+  color: #aaaaaa;
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 13px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: -0.1%;
+  left: 46.98%;
+  width: 53.12%;
+  bottom: 57.86%;
+  top: 31.43%;
+  height: 10.71%;
+}
+.s-2-b-3 {
+  color: #aaaaaa;
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 13px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: -0.1%;
+  left: 46.98%;
+  width: 53.12%;
+  bottom: 44.29%;
+  top: 44.29%;
+  height: 11.43%;
+}
+.line-4 {
+  border-style: solid;
+  border-color: #444444;
+  border-width: 1px 0 0 0;
+  width: 53.12%;
+  height: 0%;
+  position: absolute;
+  right: 0%;
+  left: 46.88%;
+  bottom: 85%;
+  top: 15%;
+}
+.line-53 {
+  border-style: solid;
+  border-color: #444444;
+  border-width: 1px 0 0 0;
+  width: 53.12%;
+  height: 0%;
+  position: absolute;
+  right: 0%;
+  left: 46.88%;
+  bottom: 42.14%;
+  top: 57.86%;
+}
+._400-klay3 {
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 0%;
+  left: 46.88%;
+  width: 53.12%;
+  bottom: 26.43%;
+  top: 60%;
+  height: 13.57%;
+}
+._400-klay-3-span {
+  color: #ff3c37;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+._400-klay-3-span2 {
+  color: #ffffff;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+._120-0003 {
+  color: #aaaaaa;
+  text-align: left;
+  font-family: "NotoSansKr-Regular", sans-serif;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  font-weight: 400;
+  position: absolute;
+  right: 0%;
+  left: 46.88%;
+  width: 53.12%;
+  bottom: 15.71%;
+  top: 72.14%;
+  height: 12.14%;
+}
+.component-2 {
+  width: 320px;
+  height: 140px;
+  position: absolute;
+  left: 20px;
+  top: 1123px;
+}
+.rectangle-1922 {
+  border-radius: 20px 0px 20px 0px;
+  width: 43.75%;
+  height: 100%;
+  position: absolute;
+  right: 56.25%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.mdi-heart-outline6 {
+  width: 6.25%;
+  height: 13.57%;
+  position: absolute;
+  right: 63.44%;
+  left: 30.31%;
+  bottom: 82.14%;
+  top: 4.29%;
+  overflow: visible;
+}
+._400-klay-3-span3 {
+  color: #ff3c37;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+._400-klay-3-span4 {
+  color: #ffffff;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+.component-4 {
+  width: 320px;
+  height: 140px;
+  position: absolute;
+  left: 20px;
+  top: 943px;
+}
+.div5 {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 0%;
+  left: 46.88%;
+  width: 53.12%;
+  bottom: 73.57%;
+  top: -2.14%;
+  height: 28.57%;
+}
+.div6 {
+  color: #aaaaaa;
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 13px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 0%;
+  left: 46.88%;
+  width: 53.12%;
+  bottom: 55%;
+  top: 34.29%;
+  height: 10.71%;
+}
+._2024-05-08-19-302 {
+  color: #aaaaaa;
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 13px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: -0.1%;
+  left: 46.98%;
+  width: 53.12%;
+  bottom: 42.14%;
+  top: 47.14%;
+  height: 10.71%;
+}
+.s-2-b-32 {
+  color: #aaaaaa;
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 13px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: -0.1%;
+  left: 46.98%;
+  width: 53.12%;
+  bottom: 28.57%;
+  top: 60%;
+  height: 11.43%;
+}
+.line-42 {
+  border-style: solid;
+  border-color: #444444;
+  border-width: 1px 0 0 0;
+  width: 53.12%;
+  height: 0%;
+  position: absolute;
+  right: 0%;
+  left: 46.88%;
+  bottom: 69.29%;
+  top: 30.71%;
+}
+.line-54 {
+  border-style: solid;
+  border-color: #444444;
+  border-width: 1px 0 0 0;
+  width: 53.12%;
+  height: 0%;
+  position: absolute;
+  right: 0%;
+  left: 46.88%;
+  bottom: 26.43%;
+  top: 73.57%;
+}
+._400-klay4 {
+  text-align: left;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+  position: absolute;
+  right: 0%;
+  left: 46.88%;
+  width: 53.12%;
+  bottom: 10.71%;
+  top: 75.71%;
+  height: 13.57%;
+}
+._400-klay-4-span {
+  color: #ff3c37;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+._400-klay-4-span2 {
+  color: #ffffff;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+._120-0004 {
+  color: #aaaaaa;
+  text-align: left;
+  font-family: "NotoSansKr-Regular", sans-serif;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  font-weight: 400;
+  position: absolute;
+  right: 0%;
+  left: 46.88%;
+  width: 53.12%;
+  bottom: 0%;
+  top: 87.86%;
+  height: 12.14%;
+}
+.mdi-heart-outline7 {
+  width: 6.25%;
+  height: 13.57%;
+  position: absolute;
+  right: 63.44%;
+  left: 30.31%;
+  bottom: 82.14%;
+  top: 4.29%;
+  overflow: visible;
+}
+.component-5 {
+  width: 320px;
+  height: 140px;
+  position: absolute;
+  left: 20px;
+  top: 1303px;
+}
+._400-klay-4-span3 {
+  color: #ff3c37;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+._400-klay-4-span4 {
+  color: #ffffff;
+  font-family: "Esamanru-Light", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+.mdi-heart-outline8 {
+  width: 6.25%;
+  height: 13.57%;
+  position: absolute;
+  right: 63.44%;
+  left: 30.31%;
+  bottom: 82.14%;
+  top: 4.29%;
+  overflow: visible;
+}
+.div7 {
+  width: 360px;
+  height: 75px;
+  position: absolute;
+  left: 0px;
+  top: 2292px;
+}
+.rectangle-194 {
+  background: #000000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+}
+.group-15 {
+  position: absolute;
+  inset: 0;
+}
+.group-52 {
+  width: 303px;
+  height: 14px;
+  position: static;
+}
+.home {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+  position: absolute;
+  right: 81.94%;
+  left: 7.5%;
+  width: 10.56%;
+  bottom: 24%;
+  top: 57.33%;
+  height: 18.67%;
+}
+.ticket {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+  position: absolute;
+  right: 57.22%;
+  left: 30.83%;
+  width: 11.94%;
+  bottom: 24%;
+  top: 57.33%;
+  height: 18.67%;
+}
+.market {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+  position: absolute;
+  right: 32.22%;
+  left: 53.33%;
+  width: 14.44%;
+  bottom: 24%;
+  top: 57.33%;
+  height: 18.67%;
+}
+.my-page {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Esamanru-Medium", sans-serif;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+  position: absolute;
+  right: 8.33%;
+  left: 76.39%;
+  width: 15.28%;
+  bottom: 24%;
+  top: 57.33%;
+  height: 18.67%;
+}
+.group-63 {
+  width: 76.39%;
+  height: 25.33%;
+  position: absolute;
+  right: 13.61%;
+  left: 10%;
+  bottom: 50.67%;
+  top: 24%;
+  overflow: visible;
+}
+.div8 {
+  width: 360px;
+  height: 50px;
+  position: sticky;
+  left: 0px;
+  top: 0px;
+}
+.rectangle-32 {
+  background: #000000;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 0px 0px 1px 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+}
+.xpass-logo-1 {
+  width: 24.07%;
+  height: 40%;
+  position: absolute;
+  right: 70.37%;
+  left: 5.56%;
+  bottom: 28%;
+  top: 32%;
+  object-fit: cover;
+}
+.mdi-hamburger-menu {
+  width: 7.78%;
+  height: 56%;
+  position: absolute;
+  right: 5.56%;
+  left: 86.67%;
+  bottom: 22%;
+  top: 22%;
+  overflow: visible;
+}

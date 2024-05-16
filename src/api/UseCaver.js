@@ -61,6 +61,7 @@ export const fetchCardsOf = async (address) => {
   const tokenName = [];
 	const tokenDesc = [];
 	const tokenAttr = [];
+	const tokenPrice = [];
   for (let i = 0; i < balance; i++) {
     // const uri = await NFTContract.methods.tokenURI(tokenIds[i]).call();
     // tokenUris.push(uri);
@@ -73,10 +74,12 @@ export const fetchCardsOf = async (address) => {
 		tokenName.push(uriJSON.name);
 		tokenDesc.push(uriJSON.description);
 		tokenAttr.push(uriJSON.attributes);
+		const _tokenPrice = await getSellPrice(tokenIds[i]);
+		tokenPrice.push(_tokenPrice);
   }
   const nfts = [];
   for (let i = 0; i < balance; i++) {
-    nfts.push({ uri: tokenUris[i], id: tokenIds[i], name: tokenName[i], description: tokenDesc[i], attributes: tokenAttr[i] });
+    nfts.push({ uri: tokenUris[i], id: tokenIds[i], name: tokenName[i], description: tokenDesc[i], attributes: tokenAttr[i], sellPrice: tokenPrice[i] });
   }
   console.log(nfts);
   return nfts;
@@ -135,6 +138,53 @@ export const fetchCardsOfTid = async (address, tid) => {
   console.log(nfts);
   return nfts;
 };
+//판매등록된 NFT만 추출
+export const fetchCardsOfSale = async () => {
+	/*
+		struct XPassTokenData {
+        uint tokenId;
+        uint tokenPrice;
+    }
+	*/
+  //  xPassTokens[i] = XPassTokenData(tokenId, tokenPrice);
+  const balance = await MarketContract.methods.getSaleXPassTokens().call();
+  console.log(`[NFT Balance]${balance}`);
+ 
+  const tokenIds = [];
+  //for (let i = 0; i < balance.length; i++) {
+  //  const id = balance[i][0];
+	//	tokenIds.push(id);
+  //}
+  // Fetch Token URIs
+  const tokenUris = [];
+  const tokenName = [];
+	const tokenDesc = [];
+	const tokenAttr = [];
+	const tokenPrice = [];
+  for (let i = 0; i < balance.length; i++) {
+		tokenIds[i] = balance[i][0];
+		tokenPrice[i] = balance[i][1];
+		const metadataUrl = await NFTContract.methods.tokenURI(tokenIds[i]).call();
+		const response = await axios.get(metadataUrl) // JSON 형식 메타데이터가 들어옴
+		const uriJSON = response.data
+		console.log(uriJSON);
+    tokenUris.push(uriJSON.image);
+		tokenName.push(uriJSON.name);
+		tokenDesc.push(uriJSON.description);
+		tokenAttr.push(uriJSON.attributes);
+		tokenPrice.push(tokenPrice[i]);
+  }
+  const nfts = [];
+  for (let i = 0; i < balance.length; i++) {
+		//if(tokenIds[i] === tid) {
+			nfts.push({ uri: tokenUris[i], id: tokenIds[i], name: tokenName[i], description: tokenDesc[i], attributes: tokenAttr[i], sellPrice: tokenPrice[i] });
+		//}
+    //nfts.push({ uri: tokenUris[i], id: tokenIds[i], name: tokenName[i], description: tokenDesc[i], attributes: tokenAttr[i] });
+  }
+  console.log(nfts);
+  return nfts;
+	
+};
 
 // 클레이 지갑의 잔고 조회하기
 export const getBalance = (address) => {
@@ -159,10 +209,12 @@ export const getNftInfo = async (tid) => {
 	const tokenName = uriJSON.name;
 	const tokenDesc = uriJSON.description;
 	const tokenAttr = uriJSON.attributes;
-	console.log(tokenAttr);
+	const tokenPrice = await getSellPrice(tid);
+
+	//console.log(tokenAttr);
 
 	const nftInfo = [];
-	nftInfo.push([tokenUris, tokenName, tokenDesc, tokenAttr]);
+	nftInfo.push({uri: tokenUris, id: tid, name: tokenName, description: tokenDesc, attributes: tokenAttr, sellPrice: tokenPrice});
 	
 	return nftInfo;
 

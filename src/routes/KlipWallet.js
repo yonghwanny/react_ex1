@@ -204,6 +204,7 @@ export default function KlipWallet() {
 						</Link>
 						</Card>
 						<Row><h5>No.{nft.id}</h5><h4>{nft.name}</h4><h5>{nft.description}</h5></Row>
+						
 						<Row>
 						{nft.attributes.map((attr) => {
 							//공연일 이전인지 체크
@@ -229,7 +230,7 @@ export default function KlipWallet() {
 						}	
 						)}
 						</Row>
-
+						<Row><h5>{nft.sellPrice !== "0" ? "판매중(" + nft.sellPrice + " klay)" : "판매전"}</h5></Row>
 					</Col>
 				))}
 			</Row>

@@ -90,7 +90,38 @@ export const approveSaleCardAll = async (
     callback
   );
 };
-
+//판매등록
+export const setForSaleXPassTocken = async (
+  tokenId,
+  sellPrice,
+  setQrvalue,
+  callback
+) => {
+  const functionJson = 
+   '{ "inputs": [ { "internalType": "uint256", "name": "_tokenId", "type": "uint256" }, { "internalType": "uint256", "name": "_price", "type": "uint256" } ], "name": "setForSaleXPassToken", "outputs": [], "stateMutability": "nonpayable", "type": "function" }';
+   executeContract(
+    MARKET_CONTRACT_ADDRESS,
+    functionJson,
+    "0",// eslint-disable-next-line
+    `[\"${tokenId}\",\"${sellPrice}\"]`,
+    setQrvalue,
+    callback
+  );
+};
+//구매
+export const buyXPassToken = async (tokenId, sellPrice, setQrvalue, callback) => {
+  //const sellPrice = _sellPrice * 10000000000000000;
+  const functionJson =
+    '{ "inputs": [ { "internalType": "uint256", "name": "_tokenId", "type": "uint256" } ], "name": "purchaseXPassToken", "outputs": [], "stateMutability": "payable", "type": "function" }';
+  executeContract(
+    MARKET_CONTRACT_ADDRESS,
+    functionJson,// eslint-disable-next-line
+    `\"${sellPrice}\"`,// eslint-disable-next-line
+    `[\"${tokenId}\"]`,
+    setQrvalue,
+    callback
+  );
+};
 ///////////////////////////////////////////////////////////////////////////////
 export const executeContract = (
   txTo,

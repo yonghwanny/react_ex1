@@ -3,6 +3,7 @@ import KlipWallet from '../routes/KlipWallet';
 import KlipWalletDetail from '../routes/KlipWalletDetail';
 import Market from "../routes/Market";
 import Ticket from "../routes/Ticket";
+import TicketDetail from "../routes/TicketDetail";
 import Goods from "../routes/Goods";
 import Header from "./Header";
 import NavBar from "./NavBar";
@@ -19,6 +20,7 @@ const AppRouter = () => {
         <Route path="/wallet" element={<KlipWallet/>} />
         <Route path="/wallet/:tid" element={<KlipWalletDetail/>} />
         <Route path="/ticket" element={<Ticket/>} />
+        <Route path="/ticket/:tid" element={<TicketDetail/>} />
         <Route path="/goods" element={<Goods/>} />
       </Routes>
       <NavBar />

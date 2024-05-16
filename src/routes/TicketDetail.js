@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Card, Row, Col, Button, Toast, Alert } from "react-bootstrap";
 import Modal from "../components/Modal";
 import QRcode from "../components/QRcode";
-import { getBalance, getNftInfo, getSaleStatus, getSellPrice } from "../api/UseCaver";
+import { getBalance, getNftInfo } from "../api/UseCaver";
 import * as KlipAPI from "../api/UseKlip";
 import { DEFAULT_QR_CODE, DEFAULT_ADDRESS } from "../constants/for_klip";
 import LogoKlaytn from "../assets/logo_klaytn.png";
 //import { useHistory, useParams } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
-export default function KlipWalletDetail() {
+export default function TicketDetail() {
   const { tid } = useParams();
   console.log(tid);
 
@@ -25,38 +25,14 @@ export default function KlipWalletDetail() {
 		onConfirm: () => {},
 	});
 
-  //tokenId 
-
-  //공연중일 경우 판매가격에 제한을 주기위한 체크함수
-	//const [checkLitmitPrice, setCheckLitmitPrice] = useState(false);
-	let checkBeforeDate = false;
-
-  // 공연중인 티켓일 경우 2차 판매금액의 최고금액을 제한한다.
-const getCheckBeforeDate = (_pDate) => {
-  //const regex = /[^0-9]/g;
-  _pDate = _pDate.replace("년", "-");
-  _pDate = _pDate.replace("월", "-");
-  _pDate = _pDate.replace("일", "");
-  _pDate = _pDate.replace(/\s+/g, "");
-  const arrDate = _pDate.split("-");
-
-  const pDate = new Date(`${arrDate[0]}-${arrDate[1] >= 10 ? arrDate[1] : '0' + arrDate[1]}-${arrDate[2] >= 10 ? arrDate[2] : '0' + arrDate[2]}`);
-  //console.log(pDate);
-  const tDate = new Date();
-  if(pDate.getTime() > tDate.getTime()) {
-  
-    return true;
-  }
-  return false;
-}
 //종가 클레이 가격
 const [klayPrice, setKlayPrice] = useState('0');	
 //판매승인 확인
-const [saleStatus, setSaleStatus] = useState(false);
+//const [saleStatus, setSaleStatus] = useState(false);
 //const account = myAddress;
 //판매가격
-const [sellPrice, setSellPrice] = useState("0");
-const [inputSellPrice, setInputSellPrice] = useState("");
+//const [sellPrice, setSellPrice] = useState("0");
+//const [inputSellPrice, setInputSellPrice] = useState("");
 /////////////////////////////////////////////////////////////////////
 const onClickMyCard = (tokenId) => {
   KlipAPI.listingCard(myAddress, tokenId, setQrvalue, (result) => {
@@ -73,6 +49,7 @@ const onClickCard = (id) => {
   })
   setShowModal(true);
 }
+/*
 //판매승인 토글
 const onClickApproveMyCard = () => {
   KlipAPI.approveSaleCardAll(!saleStatus, setQrvalue, (result) => {
@@ -89,26 +66,28 @@ setModalProps({
 })
 setShowModal(true);
 }
+*/
 //판매등록 이벤트
-const onClickSellPriceExe = (tokenId, sellPrice) => {
-  KlipAPI.setForSaleXPassTocken(tokenId, sellPrice, setQrvalue, (result) => {
+const onClickBuyPriceExe = (tokenId, _sellPrice) => {
+  const sellPrice = _sellPrice * 10000000000000000; // 0.01 klay(1klay = 10 ^ 18)
+  //alert(sellPrice);//2*10000000000000000 = 20000000000000000
+
+  KlipAPI.buyXPassToken(tokenId, sellPrice, setQrvalue, (result) => {
     alert(JSON.stringify(result));
   });
 };
-const onClickSellPrice = () => {
-  //alert(inputSellPrice + " klay에 판매하시겠습니까?");
+const onClickBuyPrice = (_sellPrice) => {
+
   setModalProps({
-    title: inputSellPrice + " klay에 판매하시겠습니까?",
+    title: _sellPrice + " klay에 구매하시겠습니까?",
     onConfirm: () => {
-      onClickSellPriceExe(tid, inputSellPrice);
+      onClickBuyPriceExe(tid, _sellPrice);
     },
   })
   setShowModal(true);
 
 }
-const onChangeSellPrice = (event) => {
-  setInputSellPrice(event.target.value);
-}
+
 //클립 지갑연동
 const getUserData = () => {
   setModalProps({
@@ -141,8 +120,8 @@ useEffect(() => {
     const _nfts = await getNftInfo(tid);
       setNfts(_nfts);
     //await getNftInfo(82211);
-    const _saleStatus = await getSaleStatus(myAddress);
-    setSaleStatus(_saleStatus);
+    //const _saleStatus = await getSaleStatus(myAddress);
+    //setSaleStatus(_saleStatus);
   }
 
   //종가 클레이튼 가격 가져요기
@@ -165,7 +144,7 @@ useEffect(() => {
     
     //setKlayPrice('258');
   }
-
+/*
   //판매가격 가져오기
   const getSellPriceByTid = async () => {
     if (myAddress === DEFAULT_ADDRESS) {
@@ -182,11 +161,11 @@ useEffect(() => {
       console.log(error);
     }
   }
-
+*/
   if (myAddress !== DEFAULT_ADDRESS) {
     fetchMyNFTs();
     fetchKlayPrice();
-    getSellPriceByTid();
+    //getSellPriceByTid();
   }
   
 }, [myAddress, tid]);
@@ -238,18 +217,7 @@ return (
     {qrvalue !== "DEFAULT" ? <QRcode value={qrvalue} /> : null}
     {myAddress !== DEFAULT_ADDRESS ? (
     <Row style={{ textAlign: "right" }}>
-      <Col>
-      {saleStatus ? (
-        <Button onClick={() => {onClickApproveCard("판매승인 취소를 하시겠어요?")}}>
-        판매승인취소
-        </Button>
-      ) : (
-        <Button onClick={() => {onClickApproveCard("판매승인을 하시겠어요?")}}>
-        판매승인
-        </Button>
-      )}
       
-      </Col>
     </Row>
     ) : null}
     <Row>
@@ -266,21 +234,7 @@ return (
           <Row><h5>No.{nft.id}</h5><h4>{nft.name}</h4><h5>{nft.description}</h5></Row>
           <Row>
           {nft.attributes.map((attr) => {
-            //공연일 이전인지 체크
-            if(attr.trait_type === "공연일시"){
-              //console.log(attr.value);
-              checkBeforeDate = getCheckBeforeDate(attr.value);
-              //attr.value = new Date();
-            }
-            //공연중일때 판매가격 제한
-            if(checkBeforeDate && attr.trait_type === "티켓가격"){
-              //attr.value = Number(attr.value) * 2;
-              //klay 현재가격
-
-              //최대가격이상일 경우 리턴
-
-              
-            }
+            
             return (
               <Col style={{ marginRight: 0, paddingRight: 0 }} sm={6} xs={6}>
                 <li>{attr.trait_type} : {attr.value}</li>
@@ -291,15 +245,10 @@ return (
           </Row>
           <Row style={{ textAlign: "right" }}>
             <Col>
-            {sellPrice === "0" ? (
               <div>
-                <input type='number' onChange={onChangeSellPrice} value={inputSellPrice}></input> Klay
-                <button onClick={onClickSellPrice}>판매등록</button>
+                {nft.sellPrice} Klay
+                <button onClick={()=>{onClickBuyPrice(nft.sellPrice)}}>구매하기</button>
               </div>
-              
-            ) : (
-              <div>판매중</div>
-            )}
             </Col>
           </Row>
         </Col>
@@ -313,3 +262,4 @@ return (
   </div>
 )
 }
+//<button onClick={(e)=>{clickHandler(params, e)}}> Do Something!</button>
