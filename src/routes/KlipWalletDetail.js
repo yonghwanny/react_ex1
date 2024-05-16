@@ -58,6 +58,7 @@ const [saleStatus, setSaleStatus] = useState(false);
 const [sellPrice, setSellPrice] = useState("0");
 const [inputSellPrice, setInputSellPrice] = useState("");
 /////////////////////////////////////////////////////////////////////
+/*
 const onClickMyCard = (tokenId) => {
   KlipAPI.listingCard(myAddress, tokenId, setQrvalue, (result) => {
     alert(JSON.stringify(result));
@@ -73,6 +74,7 @@ const onClickCard = (id) => {
   })
   setShowModal(true);
 }
+*/
 //판매승인 토글
 const onClickApproveMyCard = () => {
   KlipAPI.approveSaleCardAll(!saleStatus, setQrvalue, (result) => {
@@ -256,11 +258,7 @@ return (
       {nfts.map((nft) => 
         (
         <Col style={{ marginRight: 0, paddingRight: 0 }} sm={6} xs={6}>
-          <Card
-            onClick={() => {
-              onClickCard(nft.id)
-            }}
-          >
+          <Card>
             <Card.Img src={nft.uri} />
           </Card>
           <Row><h5>No.{nft.id}</h5><h4>{nft.name}</h4><h5>{nft.description}</h5></Row>

@@ -13,7 +13,7 @@ import {
 */
 
 const A2P_API_PREPARE_URL = "https://a2a-api.klipwallet.com/v2/a2a/prepare";
-const APP_NAME = "KLAY_MARKET";
+const APP_NAME = "XPASS_MARKET";
 const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone/i.test(window.navigator.userAgent)
 
 const getKlipAccessUrl = (method, request_key) => {

@@ -34,6 +34,7 @@ const [klayPrice, setKlayPrice] = useState('0');
 //const [sellPrice, setSellPrice] = useState("0");
 //const [inputSellPrice, setInputSellPrice] = useState("");
 /////////////////////////////////////////////////////////////////////
+/*
 const onClickMyCard = (tokenId) => {
   KlipAPI.listingCard(myAddress, tokenId, setQrvalue, (result) => {
     alert(JSON.stringify(result));
@@ -49,6 +50,7 @@ const onClickCard = (id) => {
   })
   setShowModal(true);
 }
+*j/
 /*
 //판매승인 토글
 const onClickApproveMyCard = () => {
@@ -67,7 +69,7 @@ setModalProps({
 setShowModal(true);
 }
 */
-//판매등록 이벤트
+//구매 이벤트
 const onClickBuyPriceExe = (tokenId, _sellPrice) => {
   const sellPrice = _sellPrice * 10000000000000000; // 0.01 klay(1klay = 10 ^ 18)
   //alert(sellPrice);//2*10000000000000000 = 20000000000000000
@@ -224,11 +226,7 @@ return (
       {nfts.map((nft) => 
         (
         <Col style={{ marginRight: 0, paddingRight: 0 }} sm={6} xs={6}>
-          <Card
-            onClick={() => {
-              onClickCard(nft.id)
-            }}
-          >
+          <Card>
             <Card.Img src={nft.uri} />
           </Card>
           <Row><h5>No.{nft.id}</h5><h4>{nft.name}</h4><h5>{nft.description}</h5></Row>
