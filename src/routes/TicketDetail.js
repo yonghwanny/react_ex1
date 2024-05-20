@@ -71,7 +71,7 @@ setShowModal(true);
 */
 //구매 이벤트
 const onClickBuyPriceExe = (tokenId, _sellPrice) => {
-  const sellPrice = _sellPrice * 10000000000000000; // 0.01 klay(1klay = 10 ^ 18)
+  const sellPrice = (_sellPrice * 10000000000000000).toString(); // 0.01 klay(1klay = 10 ^ 18)
   //alert(sellPrice);//2*10000000000000000 = 20000000000000000
 
   KlipAPI.buyXPassToken(tokenId, sellPrice, setQrvalue, (result) => {
