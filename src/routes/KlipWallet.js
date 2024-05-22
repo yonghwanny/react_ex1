@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, Row, Col, Button, Toast, Alert } from "react-bootstrap";
 import Modal from "../components/Modal";
 import QRcode from "../components/QRcode";
-import { getBalance, fetchCardsOf, getSaleStatus, fetchCardsOf2 } from "../api/UseCaver";
+import { getBalance, fetchCardsOf, getSaleStatus, fetchCardsOf2, getBalanceXTC } from "../api/UseCaver";
 import * as KlipAPI from "../api/UseKlip";
 import { DEFAULT_QR_CODE, DEFAULT_ADDRESS } from "../constants/for_klip";
 import LogoKlaytn from "../assets/logo_klaytn.png";
@@ -104,7 +104,9 @@ export default function KlipWallet() {
 					const _balance = await getBalance(address);
 					window.sessionStorage.setItem('balance', _balance);
 					setMyBalance(_balance);
-					setXtcBalance(0);
+					const _balance_xtc = await getBalanceXTC(address);
+					window.sessionStorage.setItem('xtcbalance', _balance_xtc);
+					setXtcBalance(_balance_xtc);
 					//navigate('/goods');
 				});
 			},

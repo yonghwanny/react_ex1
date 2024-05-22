@@ -306,6 +306,7 @@ Decimal 18
 Official site https://www.xticket.io
 */
 export const getBalanceXTC = (address) => {
+	/*
   return caver.rpc.klay.getBalance(address).then((response) => {
 		//16진수 response를 숫자로 바꾸고, PEB단위에서 KLAY단위로 변환
     const balance = caver.utils.convertFromPeb(
@@ -314,4 +315,14 @@ export const getBalanceXTC = (address) => {
     console.log(`BALANCE: ${balance}`);
     return balance;
   });
+	*/
+	const xtc_ca = "0xe445e4a382cb58c26fd8811115e69e52357fe8ff";
+	const kip7 = caver.kct.kip7.create(xtc_ca);
+	return kip7.balanceOf(address).then((response) => {
+		const balance = caver.utils.convertFromPeb(
+			caver.utils.hexToNumberString(response)
+		);
+		console.log(`BALANCE: ${balance}`);
+    return balance;
+	});
 };
