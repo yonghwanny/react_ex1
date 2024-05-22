@@ -34,6 +34,8 @@ const caver = new Caver(
 // 참조 ABI와 스마트컨트랙트 주소를 통해 스마트컨트랙트 연동
 const NFTContract = new caver.contract(KIP17ABI, NFT_CONTRACT_ADDRESS);
 const MarketContract = new caver.contract(MARKETABI, MARKET_CONTRACT_ADDRESS);
+const NFT_CONTRACT_ADDRESS2 = "0x596a466100afdf4607d1c6896649e18d04e90b58";
+const NFTContract2 = new caver.contract(KIP17ABI, NFT_CONTRACT_ADDRESS2);
 
 export const fetchCardsOf = async (address) => {
 	/* 
@@ -75,6 +77,45 @@ export const fetchCardsOf = async (address) => {
 		tokenDesc.push(uriJSON.description);
 		tokenAttr.push(uriJSON.attributes);
 		const _tokenPrice = await getSellPrice(tokenIds[i]);
+		tokenPrice.push(_tokenPrice);
+  }
+  const nfts = [];
+  for (let i = 0; i < balance; i++) {
+    nfts.push({ uri: tokenUris[i], id: tokenIds[i], name: tokenName[i], description: tokenDesc[i], attributes: tokenAttr[i], sellPrice: tokenPrice[i] });
+  }
+  console.log(nfts);
+  return nfts;
+};
+//다른 NFT contract
+export const fetchCardsOf2 = async (address) => {
+  // Fetch Balance
+  const balance = await NFTContract2.methods.balanceOf(address).call();
+  console.log(`[NFT Balance]${balance}`);
+  // Fetch Token IDs
+  const tokenIds = [];
+  for (let i = 0; i < balance; i++) {
+    const id = await NFTContract2.methods.tokenOfOwnerByIndex(address, i).call();
+    tokenIds.push(id);
+  }
+  // Fetch Token URIs
+  const tokenUris = [];
+  const tokenName = [];
+	const tokenDesc = [];
+	const tokenAttr = [];
+	const tokenPrice = [];
+  for (let i = 0; i < balance; i++) {
+    // const uri = await NFTContract.methods.tokenURI(tokenIds[i]).call();
+    // tokenUris.push(uri);
+
+		const metadataUrl = await NFTContract2.methods.tokenURI(tokenIds[i]).call(); // KAS 메타데이터 response.uri: "https://metadata-store.klaytnapi.com/e2d83vdb-c108-823c-d5f3-69vdf2d871c51/4f9asvf2f5-02d0-5b86-4f99-50acds269c8a.json"
+		const response = await axios.get(metadataUrl) // JSON 형식 메타데이터가 들어옴
+		const uriJSON = response.data
+		console.log(uriJSON);
+    tokenUris.push(uriJSON.image);
+		tokenName.push(uriJSON.name);
+		tokenDesc.push(uriJSON.description);
+		tokenAttr.push(uriJSON.attributes);
+		const _tokenPrice = "0";//await getSellPrice(tokenIds[i]);
 		tokenPrice.push(_tokenPrice);
   }
   const nfts = [];
@@ -251,3 +292,26 @@ export const getSellPrice = async (tid) => {
 		console.error(error);
 	}
 }
+
+// 클레이 지갑의 XTC 잔고 조회하기 "caver-js": "^1.11.0"
+/*
+https://docs.klaytn.foundation/ko/docs/references/sdk/caver-js/api/caver-kct/kip7/
+const kip7 = caver.kct.kip7.create('0x{address in hex}')
+kip7.balanceOf('0x{address in hex}').then(console.log)
+Contract 0xe445e4a382cb58c26fd8811115e69e52357fe8ff
+Name XTICKET
+Symbol XTC
+Total supply 1,000,000,000.
+Decimal 18
+Official site https://www.xticket.io
+*/
+export const getBalanceXTC = (address) => {
+  return caver.rpc.klay.getBalance(address).then((response) => {
+		//16진수 response를 숫자로 바꾸고, PEB단위에서 KLAY단위로 변환
+    const balance = caver.utils.convertFromPeb(
+      caver.utils.hexToNumberString(response)
+    );
+    console.log(`BALANCE: ${balance}`);
+    return balance;
+  });
+};

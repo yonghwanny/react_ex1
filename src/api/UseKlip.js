@@ -110,7 +110,6 @@ export const setForSaleXPassTocken = async (
 };
 //구매
 export const buyXPassToken = async (tokenId, sellPrice, setQrvalue, callback) => {
-  //const sellPrice = _sellPrice * 10000000000000000;
   const functionJson ='{ "inputs": [ { "internalType": "uint256", "name": "_tokenId", "type": "uint256" } ], "name": "purchaseXPassToken", "outputs": [], "stateMutability": "payable", "type": "function" }';
   executeContract(
     MARKET_CONTRACT_ADDRESS,

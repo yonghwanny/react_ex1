@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Card, Row, Col, Button, Toast, Alert } from "react-bootstrap";
 import Modal from "../components/Modal";
 import QRcode from "../components/QRcode";
-import { getBalance, fetchCardsOf, getSaleStatus } from "../api/UseCaver";
+import { getBalance, fetchCardsOf, getSaleStatus, fetchCardsOf2 } from "../api/UseCaver";
 import * as KlipAPI from "../api/UseKlip";
 import { DEFAULT_QR_CODE, DEFAULT_ADDRESS } from "../constants/for_klip";
 import LogoKlaytn from "../assets/logo_klaytn.png";
 import { Link } from "react-router-dom";
 //import axios from "axios";
+//import {useHistory} from "react-router";
 
 export default function KlipWallet() {
 	const [nfts, setNfts] = useState([]); // {id: '101', uri: ''}
@@ -21,6 +22,11 @@ export default function KlipWallet() {
 		title: "MODAL",
 		onConfirm: () => {},
 	});
+
+	const [nfts2, setNfts2] = useState([]);
+	const [xtcBalance, setXtcBalance] = useState(window.sessionStorage.getItem('xtcbalance') || '0');
+
+	//const navigate = useNavigate();
 
 	//공연중일 경우 판매가격에 제한을 주기위한 체크함수
 	//const [checkLitmitPrice, setCheckLitmitPrice] = useState(false);
@@ -98,7 +104,8 @@ export default function KlipWallet() {
 					const _balance = await getBalance(address);
 					window.sessionStorage.setItem('balance', _balance);
 					setMyBalance(_balance);
-
+					setXtcBalance(0);
+					//navigate('/goods');
 				});
 			},
 		});
@@ -120,6 +127,18 @@ export default function KlipWallet() {
 			//await getNftInfo(82211);
 			const _saleStatus = await getSaleStatus(myAddress);
 			setSaleStatus(_saleStatus);
+		}
+		//other NFT contract
+		const fetchMyNFTs2 = async () => {
+			if (myAddress === DEFAULT_ADDRESS) {
+				alert("NO ADDRESS");
+				return;
+			}
+			const _nfts = await fetchCardsOf2(myAddress);
+				setNfts2(_nfts);
+			//await getNftInfo(82211);
+			//const _saleStatus = await getSaleStatus(myAddress);
+			//setSaleStatus(_saleStatus);
 		}
 
 		//종가 클레이튼 가격 가져요기
@@ -145,6 +164,7 @@ export default function KlipWallet() {
 
 		if (myAddress !== DEFAULT_ADDRESS) {
 			fetchMyNFTs();
+			fetchMyNFTs2();
 			fetchKlayPrice();
 		}
 		
@@ -187,7 +207,7 @@ export default function KlipWallet() {
 					{myAddress !== DEFAULT_ADDRESS ? (
 						<div style={{ textAlign: "right" }}>
 							<img src={LogoKlaytn} alt="klaytn" style={{ width: 30 }} />
-							{myBalance} KLAY  [{klayPrice}원]
+							{myBalance} KLAY  [{klayPrice}원] {xtcBalance} XTC
 						</div>
 					) : (
 						"지갑 연동하기"
@@ -231,6 +251,44 @@ export default function KlipWallet() {
 						)}
 						</Row>
 						<Row><h5>{nft.sellPrice !== "0" ? "판매중(" + nft.sellPrice + " klay)" : "판매전"}</h5></Row>
+					</Col>
+				))}
+			</Row>
+			<Row>
+				{nfts2.map((nft) => (
+					<Col style={{ marginRight: 0, paddingRight: 0 }} sm={6} xs={6}>
+						<Card>
+						<Link to={`/wallet/${nft.id}`}>
+							<Card.Img src={nft.uri} />
+						</Link>
+						</Card>
+						<Row><h5>No.{nft.id}</h5><h4>{nft.name}</h4><h5>{nft.description}</h5></Row>
+						
+						<Row>
+						{nft.attributes.map((attr) => {
+							//공연일 이전인지 체크
+							if(attr.trait_type === "공연일시"){
+								//console.log(attr.value);
+								checkBeforeDate = getCheckBeforeDate(attr.value);
+								//attr.value = new Date();
+							}
+							//공연중일때 판매가격 제한
+							if(checkBeforeDate && attr.trait_type === "티켓가격"){
+								//attr.value = Number(attr.value) * 2;
+								//klay 현재가격
+
+								//최대가격이상일 경우 리턴
+
+								
+							}
+							return (
+								<Col style={{ marginRight: 0, paddingRight: 0 }} sm={6} xs={6}>
+									<li>{attr.trait_type} : {attr.value}</li>
+								</Col>
+							);
+						}	
+						)}
+						</Row>
 					</Col>
 				))}
 			</Row>

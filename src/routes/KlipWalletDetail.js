@@ -92,9 +92,11 @@ setModalProps({
 setShowModal(true);
 }
 //판매등록 이벤트
-const onClickSellPriceExe = (tokenId, sellPrice) => {
+const onClickSellPriceExe = (tokenId, _sellPrice) => {
+  const sellPrice = (_sellPrice * 1000000000000000000).toString(); //to pep price : 1klay = 10 ^ 18;
   KlipAPI.setForSaleXPassTocken(tokenId, sellPrice, setQrvalue, (result) => {
     alert(JSON.stringify(result));
+    window.location.reload();
   });
 };
 const onClickSellPrice = () => {

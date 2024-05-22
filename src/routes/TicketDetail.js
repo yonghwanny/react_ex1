@@ -7,11 +7,13 @@ import * as KlipAPI from "../api/UseKlip";
 import { DEFAULT_QR_CODE, DEFAULT_ADDRESS } from "../constants/for_klip";
 import LogoKlaytn from "../assets/logo_klaytn.png";
 //import { useHistory, useParams } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+//import {useHistory} from "react-router";
 
 export default function TicketDetail() {
   const { tid } = useParams();
   console.log(tid);
+  const navigate = useNavigate();
 
 	const [nfts, setNfts] = useState([]); // {id: '101', uri: ''}
 	const [myAddress, setMyAddress] = useState(window.sessionStorage.getItem('address') || DEFAULT_ADDRESS);
@@ -71,11 +73,12 @@ setShowModal(true);
 */
 //구매 이벤트
 const onClickBuyPriceExe = (tokenId, _sellPrice) => {
-  const sellPrice = (_sellPrice * 10000000000000000).toString(); // 0.01 klay(1klay = 10 ^ 18)
-  //alert(sellPrice);//2*10000000000000000 = 20000000000000000
-
+  //const sellPrice = (_sellPrice * 10000000000000000).toString(); // 0.01 klay(1klay = 10 ^ 18)
+  const sellPrice = (_sellPrice / 100).toString();
   KlipAPI.buyXPassToken(tokenId, sellPrice, setQrvalue, (result) => {
     alert(JSON.stringify(result));
+    window.location.reload();
+    navigate('/wallet');
   });
 };
 const onClickBuyPrice = (_sellPrice) => {
