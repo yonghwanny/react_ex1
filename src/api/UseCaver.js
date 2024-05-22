@@ -285,7 +285,11 @@ export const getSellPrice = async (tid) => {
 
 		const response = await MarketContract.methods.getXPassTokenInfo(tid).call();
 		console.log(response);
-
+		/*
+		const _sellPrice = caver.utils.convertFromPeb(
+			caver.utils.hexToNumberString(response)
+		);
+		*/
 		return response;
 		
 	} catch (error) {
