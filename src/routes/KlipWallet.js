@@ -216,6 +216,7 @@ export default function KlipWallet() {
 					)}
 				</Alert>
 			</div>
+			{myAddress !== DEFAULT_ADDRESS ? <button>출석체크</button> : null}
 			{qrvalue !== "DEFAULT" ? <QRcode value={qrvalue} /> : null}
 			<Row>
 				{nfts.map((nft) => (
